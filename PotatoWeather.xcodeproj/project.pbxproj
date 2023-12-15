@@ -1,0 +1,587 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		F436F5992B2C782C00CDB4BA /* PotatoWeatherApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F436F5982B2C782C00CDB4BA /* PotatoWeatherApp.swift */; };
+		F436F59B2B2C782C00CDB4BA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F436F59A2B2C782C00CDB4BA /* ContentView.swift */; };
+		F436F59D2B2C782E00CDB4BA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F436F59C2B2C782E00CDB4BA /* Assets.xcassets */; };
+		F436F5A02B2C782E00CDB4BA /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F436F59F2B2C782E00CDB4BA /* Preview Assets.xcassets */; };
+		F436F5AA2B2C782E00CDB4BA /* PotatoWeatherTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F436F5A92B2C782E00CDB4BA /* PotatoWeatherTests.swift */; };
+		F436F5B42B2C782E00CDB4BA /* PotatoWeatherUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F436F5B32B2C782E00CDB4BA /* PotatoWeatherUITests.swift */; };
+		F436F5B62B2C782E00CDB4BA /* PotatoWeatherUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F436F5B52B2C782E00CDB4BA /* PotatoWeatherUITestsLaunchTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		F436F5A62B2C782E00CDB4BA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F436F58D2B2C782C00CDB4BA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F436F5942B2C782C00CDB4BA;
+			remoteInfo = PotatoWeather;
+		};
+		F436F5B02B2C782E00CDB4BA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F436F58D2B2C782C00CDB4BA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F436F5942B2C782C00CDB4BA;
+			remoteInfo = PotatoWeather;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		F436F5952B2C782C00CDB4BA /* PotatoWeather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PotatoWeather.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F436F5982B2C782C00CDB4BA /* PotatoWeatherApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PotatoWeatherApp.swift; sourceTree = "<group>"; };
+		F436F59A2B2C782C00CDB4BA /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		F436F59C2B2C782E00CDB4BA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F436F59F2B2C782E00CDB4BA /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		F436F5A52B2C782E00CDB4BA /* PotatoWeatherTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PotatoWeatherTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F436F5A92B2C782E00CDB4BA /* PotatoWeatherTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PotatoWeatherTests.swift; sourceTree = "<group>"; };
+		F436F5AF2B2C782E00CDB4BA /* PotatoWeatherUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PotatoWeatherUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F436F5B32B2C782E00CDB4BA /* PotatoWeatherUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PotatoWeatherUITests.swift; sourceTree = "<group>"; };
+		F436F5B52B2C782E00CDB4BA /* PotatoWeatherUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PotatoWeatherUITestsLaunchTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		F436F5922B2C782C00CDB4BA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F436F5A22B2C782E00CDB4BA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F436F5AC2B2C782E00CDB4BA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		F436F58C2B2C782C00CDB4BA = {
+			isa = PBXGroup;
+			children = (
+				F436F5972B2C782C00CDB4BA /* PotatoWeather */,
+				F436F5A82B2C782E00CDB4BA /* PotatoWeatherTests */,
+				F436F5B22B2C782E00CDB4BA /* PotatoWeatherUITests */,
+				F436F5962B2C782C00CDB4BA /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		F436F5962B2C782C00CDB4BA /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F436F5952B2C782C00CDB4BA /* PotatoWeather.app */,
+				F436F5A52B2C782E00CDB4BA /* PotatoWeatherTests.xctest */,
+				F436F5AF2B2C782E00CDB4BA /* PotatoWeatherUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F436F5972B2C782C00CDB4BA /* PotatoWeather */ = {
+			isa = PBXGroup;
+			children = (
+				F436F5982B2C782C00CDB4BA /* PotatoWeatherApp.swift */,
+				F436F59A2B2C782C00CDB4BA /* ContentView.swift */,
+				F436F59C2B2C782E00CDB4BA /* Assets.xcassets */,
+				F436F59E2B2C782E00CDB4BA /* Preview Content */,
+			);
+			path = PotatoWeather;
+			sourceTree = "<group>";
+		};
+		F436F59E2B2C782E00CDB4BA /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				F436F59F2B2C782E00CDB4BA /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		F436F5A82B2C782E00CDB4BA /* PotatoWeatherTests */ = {
+			isa = PBXGroup;
+			children = (
+				F436F5A92B2C782E00CDB4BA /* PotatoWeatherTests.swift */,
+			);
+			path = PotatoWeatherTests;
+			sourceTree = "<group>";
+		};
+		F436F5B22B2C782E00CDB4BA /* PotatoWeatherUITests */ = {
+			isa = PBXGroup;
+			children = (
+				F436F5B32B2C782E00CDB4BA /* PotatoWeatherUITests.swift */,
+				F436F5B52B2C782E00CDB4BA /* PotatoWeatherUITestsLaunchTests.swift */,
+			);
+			path = PotatoWeatherUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		F436F5942B2C782C00CDB4BA /* PotatoWeather */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F436F5B92B2C782E00CDB4BA /* Build configuration list for PBXNativeTarget "PotatoWeather" */;
+			buildPhases = (
+				F436F5912B2C782C00CDB4BA /* Sources */,
+				F436F5922B2C782C00CDB4BA /* Frameworks */,
+				F436F5932B2C782C00CDB4BA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PotatoWeather;
+			productName = PotatoWeather;
+			productReference = F436F5952B2C782C00CDB4BA /* PotatoWeather.app */;
+			productType = "com.apple.product-type.application";
+		};
+		F436F5A42B2C782E00CDB4BA /* PotatoWeatherTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F436F5BC2B2C782E00CDB4BA /* Build configuration list for PBXNativeTarget "PotatoWeatherTests" */;
+			buildPhases = (
+				F436F5A12B2C782E00CDB4BA /* Sources */,
+				F436F5A22B2C782E00CDB4BA /* Frameworks */,
+				F436F5A32B2C782E00CDB4BA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F436F5A72B2C782E00CDB4BA /* PBXTargetDependency */,
+			);
+			name = PotatoWeatherTests;
+			productName = PotatoWeatherTests;
+			productReference = F436F5A52B2C782E00CDB4BA /* PotatoWeatherTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		F436F5AE2B2C782E00CDB4BA /* PotatoWeatherUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F436F5BF2B2C782E00CDB4BA /* Build configuration list for PBXNativeTarget "PotatoWeatherUITests" */;
+			buildPhases = (
+				F436F5AB2B2C782E00CDB4BA /* Sources */,
+				F436F5AC2B2C782E00CDB4BA /* Frameworks */,
+				F436F5AD2B2C782E00CDB4BA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F436F5B12B2C782E00CDB4BA /* PBXTargetDependency */,
+			);
+			name = PotatoWeatherUITests;
+			productName = PotatoWeatherUITests;
+			productReference = F436F5AF2B2C782E00CDB4BA /* PotatoWeatherUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		F436F58D2B2C782C00CDB4BA /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1510;
+				LastUpgradeCheck = 1510;
+				TargetAttributes = {
+					F436F5942B2C782C00CDB4BA = {
+						CreatedOnToolsVersion = 15.1;
+					};
+					F436F5A42B2C782E00CDB4BA = {
+						CreatedOnToolsVersion = 15.1;
+						TestTargetID = F436F5942B2C782C00CDB4BA;
+					};
+					F436F5AE2B2C782E00CDB4BA = {
+						CreatedOnToolsVersion = 15.1;
+						TestTargetID = F436F5942B2C782C00CDB4BA;
+					};
+				};
+			};
+			buildConfigurationList = F436F5902B2C782C00CDB4BA /* Build configuration list for PBXProject "PotatoWeather" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = F436F58C2B2C782C00CDB4BA;
+			productRefGroup = F436F5962B2C782C00CDB4BA /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F436F5942B2C782C00CDB4BA /* PotatoWeather */,
+				F436F5A42B2C782E00CDB4BA /* PotatoWeatherTests */,
+				F436F5AE2B2C782E00CDB4BA /* PotatoWeatherUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		F436F5932B2C782C00CDB4BA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F436F5A02B2C782E00CDB4BA /* Preview Assets.xcassets in Resources */,
+				F436F59D2B2C782E00CDB4BA /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F436F5A32B2C782E00CDB4BA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F436F5AD2B2C782E00CDB4BA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F436F5912B2C782C00CDB4BA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F436F59B2B2C782C00CDB4BA /* ContentView.swift in Sources */,
+				F436F5992B2C782C00CDB4BA /* PotatoWeatherApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F436F5A12B2C782E00CDB4BA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F436F5AA2B2C782E00CDB4BA /* PotatoWeatherTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F436F5AB2B2C782E00CDB4BA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F436F5B62B2C782E00CDB4BA /* PotatoWeatherUITestsLaunchTests.swift in Sources */,
+				F436F5B42B2C782E00CDB4BA /* PotatoWeatherUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		F436F5A72B2C782E00CDB4BA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F436F5942B2C782C00CDB4BA /* PotatoWeather */;
+			targetProxy = F436F5A62B2C782E00CDB4BA /* PBXContainerItemProxy */;
+		};
+		F436F5B12B2C782E00CDB4BA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F436F5942B2C782C00CDB4BA /* PotatoWeather */;
+			targetProxy = F436F5B02B2C782E00CDB4BA /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		F436F5B72B2C782E00CDB4BA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		F436F5B82B2C782E00CDB4BA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		F436F5BA2B2C782E00CDB4BA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"PotatoWeather/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.potato.PotatoWeather;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		F436F5BB2B2C782E00CDB4BA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"PotatoWeather/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.potato.PotatoWeather;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		F436F5BD2B2C782E00CDB4BA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.potato.PotatoWeatherTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PotatoWeather.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/PotatoWeather";
+			};
+			name = Debug;
+		};
+		F436F5BE2B2C782E00CDB4BA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.potato.PotatoWeatherTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PotatoWeather.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/PotatoWeather";
+			};
+			name = Release;
+		};
+		F436F5C02B2C782E00CDB4BA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.potato.PotatoWeatherUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = PotatoWeather;
+			};
+			name = Debug;
+		};
+		F436F5C12B2C782E00CDB4BA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.potato.PotatoWeatherUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = PotatoWeather;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		F436F5902B2C782C00CDB4BA /* Build configuration list for PBXProject "PotatoWeather" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F436F5B72B2C782E00CDB4BA /* Debug */,
+				F436F5B82B2C782E00CDB4BA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F436F5B92B2C782E00CDB4BA /* Build configuration list for PBXNativeTarget "PotatoWeather" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F436F5BA2B2C782E00CDB4BA /* Debug */,
+				F436F5BB2B2C782E00CDB4BA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F436F5BC2B2C782E00CDB4BA /* Build configuration list for PBXNativeTarget "PotatoWeatherTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F436F5BD2B2C782E00CDB4BA /* Debug */,
+				F436F5BE2B2C782E00CDB4BA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F436F5BF2B2C782E00CDB4BA /* Build configuration list for PBXNativeTarget "PotatoWeatherUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F436F5C02B2C782E00CDB4BA /* Debug */,
+				F436F5C12B2C782E00CDB4BA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = F436F58D2B2C782C00CDB4BA /* Project object */;
+}
