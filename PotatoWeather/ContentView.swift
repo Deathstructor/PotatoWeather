@@ -9,13 +9,9 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-//        VStack {
-//            Image(systemName: "cloud")
-//                .imageScale(.large)
-//                .foregroundStyle(.tint)
-//            Text("Hello, world!")
-//        }
-//        .padding()
+        
+//      Creates the navbar at the bottom of the screen and
+//      displays each view based on the tab you're in.
         TabView {
             LocalWeatherView()
                 .tabItem {
@@ -24,8 +20,13 @@ struct ContentView: View {
                 }
             ForecastView()
                 .tabItem {
-                    Image(systemName: "tornado")
+                    Image(systemName: "calendar.badge.clock")
                     Text("Forecast")
+                }
+            MapView()
+                .tabItem {
+                    Image(systemName: "map")
+                    Text("Map")
                 }
             SearchView()
                 .tabItem {
