@@ -8,37 +8,52 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    @StateObject var manager = LocationManagerModel()
+    @StateObject var weather = FetchWeatherData()
+    
     var body: some View {
         
-//      Creates the navbar at the bottom of the screen and
-//      displays each view based on the tab you're in.
-        TabView {
-            LocalWeatherView()
-                .tabItem {
-                    Image(systemName: "sun.max.fill")
-                    Text("Weather")
-                }
-            ForecastView()
-                .tabItem {
-                    Image(systemName: "calendar.badge.clock")
-                    Text("Forecast")
-                }
-            MapView()
-                .tabItem {
-                    Image(systemName: "map")
-                    Text("Map")
-                }
-            SearchView()
-                .tabItem {
-                    Image(systemName: "magnifyingglass")
-                    Text("Search")
-                }
-            SettingsView()
-                .tabItem {
-                    Image(systemName: "gear")
-                    Text("Settings")
-                }
+        if let location = manager.location {
+//            Creates the navbar at the bottom of the screen and
+//            displays each view based on the tab you're in.
+              TabView {
+                  LocalWeatherView()
+                      .tabItem {
+                          Image(systemName: "sun.max.fill")
+                          Text("Weather")
+                      }
+                  ForecastView()
+                      .tabItem {
+                          Image(systemName: "calendar.badge.clock")
+                          Text("Forecast")
+                      }
+                  MapView()
+                      .environmentObject(manager)
+                      .tabItem {
+                          Image(systemName: "map")
+                          Text("Map")
+                      }
+                  SearchView()
+                      .tabItem {
+                          Image(systemName: "magnifyingglass")
+                          Text("Search")
+                      }
+                  SettingsView()
+                      .tabItem {
+                          Image(systemName: "gear")
+                          Text("Settings")
+                      }
+              }
+        } else {
+            if manager.isLoading {
+                ProgressView()
+            } else {
+                Text("You need to share your location to be able to use this app.")
+            }
         }
+        
+      
         
     }
 }

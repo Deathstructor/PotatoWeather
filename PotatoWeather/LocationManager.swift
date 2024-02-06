@@ -7,51 +7,57 @@
 
 import Foundation
 import SwiftUI
-import MapKit
+import CoreLocation
 
 final class LocationManagerModel: NSObject, ObservableObject, CLLocationManagerDelegate {
+    var locationManager = CLLocationManager()
     
-    //  The location manager
-        var locationManager: CLLocationManager?
+    @Published var location: CLLocationCoordinate2D?
+    @Published var isLoading = false
     
-    //  Check if the user has authorized the use of location services.
-    //  If not set, give prompt to ask for location.
-    private func checkLocationAuthorization() {
-        guard let locationManager = locationManager else { return };
-            
+    override init() {
+        super.init()
+        locationManager.delegate = self
+    }
+    
+    func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
+        requestPermission()
+    }
+    
+    func requestPermission() {
+        isLoading = true
+        
         switch locationManager.authorizationStatus {
-                
         case .notDetermined:
-            locationManager.requestWhenInUseAuthorization()
+            locationManager.requestWhenInUseAuthorization();
+            print("not determined")
+            
         case .restricted:
             locationManager.stopUpdatingLocation();
-            print("Location services are restricted on this device.")
+            print("restricted")
+            
         case .denied:
             locationManager.stopUpdatingLocation();
-            print("Location services have been denied on this device. Go to settings to allow location services.")
-        case .authorizedAlways, .authorizedWhenInUse:
+            print("denied")
+            
+        case .authorizedAlways, .authorizedWhenInUse, .authorized:
+            print("authorized")
             locationManager.startUpdatingLocation();
-        @unknown default:
+            
+        default:
             break;
         }
     }
     
-//  Checks if the location services are enabled on the device.
-//  If they are enableled, create the location manager and set the delagate to locationManager.
-    func checkLocationServices() {
-            if CLLocationManager.locationServicesEnabled() {
-                locationManager = CLLocationManager()
-                locationManager?.delegate = self
-                locationManager?.desiredAccuracy = kCLLocationAccuracyBest
-                locationManager?.startUpdatingLocation()
-            } else {
-                print("Location services have are disabled on this device.")
-                return
-            }
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        location = locations.first?.coordinate
+        isLoading = false
     }
     
-//  If the location settings have changed, ask for permission again.
-    func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
-        checkLocationAuthorization()
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        print("Failed to get location: ", error)
+        isLoading = false
     }
+    
+    
 }

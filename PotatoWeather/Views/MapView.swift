@@ -10,7 +10,7 @@ import MapKit
 
 struct MapView: View {
     
-    @StateObject var viewModel = LocationManagerModel()
+    @EnvironmentObject var viewModel: LocationManagerModel
     
     @State var camPos: MapCameraPosition = .region(MKCoordinateRegion(
         center: CLLocationCoordinate2DMake(
@@ -26,8 +26,9 @@ struct MapView: View {
     var body: some View {
         Map(position: $camPos)
             .onAppear {
-                viewModel.checkLocationServices()
-                print(viewModel.locationManager?.location?.coordinate ?? "no data")
+//                viewModel.requestPermission()
+//                viewModel.checkLocationServices()
+//                print(viewModel.locationManager?.location?.coordinate ?? "no data")
             }
     }
 }
