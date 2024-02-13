@@ -21,6 +21,7 @@
 		F4B9AC722B5A8D330033C83A /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B9AC712B5A8D330033C83A /* LocationManager.swift */; };
 		F4B9AC742B629DDB0033C83A /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B9AC732B629DDB0033C83A /* MapView.swift */; };
 		F4B9AC762B6CF05A0033C83A /* FetchWeatherData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B9AC752B6CF05A0033C83A /* FetchWeatherData.swift */; };
+		F4C1CE782B751925009033BF /* GetWeatherSymbol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C1CE772B751925009033BF /* GetWeatherSymbol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +59,7 @@
 		F4B9AC712B5A8D330033C83A /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		F4B9AC732B629DDB0033C83A /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		F4B9AC752B6CF05A0033C83A /* FetchWeatherData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchWeatherData.swift; sourceTree = "<group>"; };
+		F4C1CE772B751925009033BF /* GetWeatherSymbol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetWeatherSymbol.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +115,7 @@
 				F436F59A2B2C782C00CDB4BA /* ContentView.swift */,
 				F4B9AC712B5A8D330033C83A /* LocationManager.swift */,
 				F4B9AC752B6CF05A0033C83A /* FetchWeatherData.swift */,
+				F4C1CE772B751925009033BF /* GetWeatherSymbol.swift */,
 				F436F59C2B2C782E00CDB4BA /* Assets.xcassets */,
 				F436F59E2B2C782E00CDB4BA /* Preview Content */,
 			);
@@ -295,6 +298,7 @@
 				F4B9AC702B5A6B780033C83A /* SearchView.swift in Sources */,
 				F4B9AC6E2B551E8F0033C83A /* SettingsView.swift in Sources */,
 				F4B9AC6A2B5367060033C83A /* LocalWeatherView.swift in Sources */,
+				F4C1CE782B751925009033BF /* GetWeatherSymbol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

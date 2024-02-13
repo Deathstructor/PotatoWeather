@@ -13,20 +13,32 @@ struct LocalWeatherView: View {
     //    @StateObject var fetchWeatherModel = FetchWeatherData()
     @StateObject var manager = LocationManagerModel()
     @StateObject var fetchWeather = FetchWeatherData()
+    @StateObject var weatherSymbol = GetWeatherSymbol()
     
     @State var weather: WeatherData?
     
-//    @State var lon: CLLocationDegrees = coorManager.lon
-//    @State var lat: CLLocationDegrees = coorManager.lat
-    
     var body: some View {
-        VStack(spacing: 30) {
+        ZStack {
             if let location = manager.location {
                 if let weather = weather {
-                    VStack {
-                        Text("\(String(describing: weather.timeSeries[0].parameters[0].values[0])) °C")
-                            .bold()
-                            .font(.largeTitle)
+                    VStack(alignment: .trailing, spacing: 10) {
+                        HStack(spacing: 100) {
+                            Text("\(String(describing: weather.timeSeries[0].parameters[0].values[0])) °C")
+                                .fontWeight(.heavy)
+                                .font(.system(size: 40))
+                                .fontDesign(.rounded)
+                                .foregroundStyle(Color.white)
+                            
+                            weatherSymbol.weatherSymbols[Int(weather.timeSeries[0].parameters[26].values[0]) - 1]
+                                .font(.system(size: 50))
+                                .symbolRenderingMode(.multicolor)
+                            
+                        }
+                        Text(weatherSymbol.weatherString[Int(weather.timeSeries[0].parameters[26].values[0]) - 1])
+                            .font(.system(size: 20))
+                            .fontWeight(.bold)
+                            .fontDesign(.rounded)
+                            .foregroundStyle(.white)
                     }
                 } else {
                     ProgressView()
@@ -43,6 +55,11 @@ struct LocalWeatherView: View {
                 }
             }
         }
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .background {
+            LinearGradient(colors: [Color.black, Color.blue], startPoint: .top, endPoint: .bottomTrailing)
+        }
+        .edgesIgnoringSafeArea(.top)
     }
 }
 

@@ -15,13 +15,10 @@ class FetchWeatherData: ObservableObject {
     @State var weather: WeatherData?
     
     func getWeatherData(lon: CLLocationDegrees, lat: CLLocationDegrees) async throws -> WeatherData {
-//        let lon = 18
-//        let lat = 57
         
-//        print(String(describing: lon), String(describing: lat))
-        print(lon, lat)
         
         let endpoint = "https://opendata-download-metanalys.smhi.se/api/category/mesan2g/version/1/geotype/point/lon/\(round(10000 * lon) / 10000)/lat/\(round(10000 * lat) / 10000)/data.json"
+//        let endpoint = "https://opendata-download-metanalys.smhi.se/api/category/mesan2g/version/1/geotype/point/lon/\(round(10000 * lon) / 10000)/lat/\(round(10000 * lat) / 10000)/data.json"
         guard let url = URL(string: endpoint) else { throw apiError.invalidURL}
         
         let (data, response) = try await URLSession.shared.data(from: url)
@@ -39,6 +36,7 @@ class FetchWeatherData: ObservableObject {
     
 }
 
+// Get current temperature data from API
 struct WeatherData: Decodable {
     let referenceTime: String
     let timeSeries: [TimeSeries]
@@ -53,6 +51,10 @@ struct Parameters: Decodable {
     let values: [Double]
 }
 
+// Get forecast for upcoming day from API
+
+
+// Errors
 enum apiError: Error {
     case invalidURL
     case invalidResponse

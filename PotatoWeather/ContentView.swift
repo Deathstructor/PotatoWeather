@@ -15,36 +15,39 @@ struct ContentView: View {
     var body: some View {
         
         if let location = manager.location {
-//            Creates the navbar at the bottom of the screen and
-//            displays each view based on the tab you're in.
-              TabView {
-                  LocalWeatherView()
-                      .tabItem {
-                          Image(systemName: "sun.max.fill")
-                          Text("Weather")
-                      }
-                  ForecastView()
-                      .tabItem {
-                          Image(systemName: "calendar.badge.clock")
-                          Text("Forecast")
-                      }
-                  MapView()
-                      .environmentObject(manager)
-                      .tabItem {
-                          Image(systemName: "map")
-                          Text("Map")
-                      }
-                  SearchView()
-                      .tabItem {
-                          Image(systemName: "magnifyingglass")
-                          Text("Search")
-                      }
-                  SettingsView()
-                      .tabItem {
-                          Image(systemName: "gear")
-                          Text("Settings")
-                      }
-              }
+            // Creates the navbar at the bottom of the screen and
+            // displays each view based on the tab you're in.
+            TabView {
+                LocalWeatherView()
+                    .tabItem {
+                        Image(systemName: "sun.max.fill")
+                        Text("Weather")
+                    }
+                ForecastView()
+                    .tabItem {
+                        Image(systemName: "calendar.badge.clock")
+                        Text("Forecast")
+                    }
+                MapView()
+                    .environmentObject(manager)
+                    .tabItem {
+                        Image(systemName: "map")
+                        Text("Map")
+                    }
+                SearchView()
+                    .tabItem {
+                        Image(systemName: "magnifyingglass")
+                        Text("Search")
+                    }
+                SettingsView()
+                    .tabItem {
+                        Image(systemName: "gear")
+                        Text("Settings")
+                    }
+            }
+            .background {
+                Color.white
+            }
         } else {
             if manager.isLoading {
                 ProgressView()
@@ -53,7 +56,7 @@ struct ContentView: View {
             }
         }
         
-      
+        
         
     }
 }
