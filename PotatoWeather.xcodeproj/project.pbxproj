@@ -111,8 +111,8 @@
 			isa = PBXGroup;
 			children = (
 				F4B9AC662B5364A00033C83A /* Views */,
-				F436F5982B2C782C00CDB4BA /* PotatoWeatherApp.swift */,
 				F436F59A2B2C782C00CDB4BA /* ContentView.swift */,
+				F436F5982B2C782C00CDB4BA /* PotatoWeatherApp.swift */,
 				F4B9AC712B5A8D330033C83A /* LocationManager.swift */,
 				F4B9AC752B6CF05A0033C83A /* FetchWeatherData.swift */,
 				F4C1CE772B751925009033BF /* GetWeatherSymbol.swift */,
