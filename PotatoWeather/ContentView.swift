@@ -28,12 +28,6 @@ struct ContentView: View {
                         Image(systemName: "calendar.badge.clock")
                         Text("Forecast")
                     }
-                MapView()
-                    .environmentObject(manager)
-                    .tabItem {
-                        Image(systemName: "map")
-                        Text("Map")
-                    }
                 SearchView()
                     .tabItem {
                         Image(systemName: "magnifyingglass")

@@ -16,8 +16,8 @@ class FetchWeatherData: ObservableObject {
     
     func getWeatherData(lon: CLLocationDegrees, lat: CLLocationDegrees) async throws -> WeatherData {
         
-//        let endpoint = "https://opendata-download-metanalys.smhi.se/api/category/mesan2g/version/1/geotype/point/lon/17/lat/59/data.json"
-        let endpoint = "https://opendata-download-metanalys.smhi.se/api/category/mesan2g/version/1/geotype/point/lon/\(round(10000 * lon) / 10000)/lat/\(round(10000 * lat) / 10000)/data.json"
+        let endpoint = "https://opendata-download-metanalys.smhi.se/api/category/mesan2g/version/1/geotype/point/lon/17/lat/59/data.json"
+//        let endpoint = "https://opendata-download-metanalys.smhi.se/api/category/mesan2g/version/1/geotype/point/lon/\(round(10000 * lon) / 10000)/lat/\(round(10000 * lat) / 10000)/data.json"
         
         guard let url = URL(string: endpoint) 
         else {
@@ -43,8 +43,8 @@ class FetchWeatherData: ObservableObject {
     
     func getForecastData(lon: CLLocationDegrees, lat: CLLocationDegrees) async throws -> ForecastData {
         
-//        let endpoint = "https://opendata-download-metfcst.smhi.se/api/category/pmp3g/version/2/geotype/point/lon/17/lat/59/data.json"
-        let endpoint = "https://opendata-download-metfcst.smhi.se/api/category/pmp3g/version/2/geotype/point/lon/\(round(10000 * lon) / 10000)/lat/\(round(10000 * lon) / 10000)/data.json"
+        let endpoint = "https://opendata-download-metfcst.smhi.se/api/category/pmp3g/version/2/geotype/point/lon/17/lat/59/data.json"
+//        let endpoint = "https://opendata-download-metfcst.smhi.se/api/category/pmp3g/version/2/geotype/point/lon/\(round(10000 * lon) / 10000)/lat/\(round(10000 * lon) / 10000)/data.json"
         
         guard let url = URL(string: endpoint) 
         else {
