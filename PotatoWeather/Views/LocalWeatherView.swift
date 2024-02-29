@@ -10,7 +10,6 @@ import CoreLocation
 
 struct LocalWeatherView: View {
     
-    //    @StateObject var fetchWeatherModel = FetchWeatherData()
     @StateObject var manager = LocationManagerModel()
     @StateObject var fetchWeather = FetchWeatherData()
     @StateObject var weatherSymbol = GetWeatherSymbol()
@@ -24,7 +23,8 @@ struct LocalWeatherView: View {
                 VStack(spacing: 100) {
                     if let weather = weather {
                         VStack(alignment: .trailing, spacing: 10) {
-                            let i = weather.timeSeries[0].parameters.firstIndex(where: { $0.name == "Wsymb2" })
+                            let weatherSymbolIndex = weather.timeSeries[0].parameters.firstIndex(where: { $0.name == "Wsymb2" })
+                            
                             HStack(spacing: 100) {
                                 Text("\(String(describing: weather.timeSeries[0].parameters[0].values[0])) °C")
                                     .fontWeight(.heavy)
@@ -33,12 +33,12 @@ struct LocalWeatherView: View {
                                     .foregroundStyle(Color.white)
                                 
                                 
-                                weatherSymbol.weatherSymbols[Int(weather.timeSeries[0].parameters[i!].values[0]) - 1]
+                                weatherSymbol.weatherSymbols[Int(weather.timeSeries[0].parameters[weatherSymbolIndex!].values[0]) - 1]
                                     .font(.system(size: 50))
                                     .symbolRenderingMode(.multicolor)
                                 
                             }
-                            Text(weatherSymbol.weatherString[Int(weather.timeSeries[0].parameters[i!].values[0]) - 1])
+                            Text(weatherSymbol.weatherString[Int(weather.timeSeries[0].parameters[weatherSymbolIndex!].values[0]) - 1])
                                 .font(.system(size: 20))
                                 .fontWeight(.bold)
                                 .fontDesign(.rounded)
@@ -61,8 +61,6 @@ struct LocalWeatherView: View {
                     }
                     
                     if let forecast = forecast {
-                        
-                        
                         VStack(alignment: .leading) {
                             Text("Forecast")
                                 .fontWeight(.heavy)
@@ -72,7 +70,7 @@ struct LocalWeatherView: View {
                             ScrollView(.vertical, showsIndicators: false) {
                                 ForEach(0..<24) { day in
                                     HStack(spacing: 100) {
-                                        let i = forecast.timeSeries[day].parameters.firstIndex(where: { $0.name == "t" })
+                                        let temperatureIndex = forecast.timeSeries[day].parameters.firstIndex(where: { $0.name == "t" })
                                         
                                         let timeIndex1 = forecast.timeSeries[0].validTime.index(
                                             forecast.timeSeries[0].validTime.startIndex,
@@ -83,14 +81,14 @@ struct LocalWeatherView: View {
                                             offsetBy: 13
                                         )
                                         
-                                        let index = timeIndex1..<timeIndex2
+                                        let time = timeIndex1..<timeIndex2
                                         
-                                        Text(String(describing: forecast.timeSeries[day].validTime[index]))
+                                        Text(String(describing: forecast.timeSeries[day].validTime[time]))
                                             .font(.system(size: 25))
                                             .fontDesign(.rounded)
                                             .foregroundStyle(Color.white)
                                         
-                                        Text("\(String(describing: forecast.timeSeries[day].parameters[i!].values[0])) °C")
+                                        Text("\(String(describing: forecast.timeSeries[day].parameters[temperatureIndex!].values[0])) °C")
                                             .font(.system(size: 25))
                                             .fontDesign(.rounded)
                                             .foregroundStyle(Color.white)
@@ -126,7 +124,7 @@ struct LocalWeatherView: View {
         .background {
             LinearGradient(colors: [Color.black, Color.blue], startPoint: .top, endPoint: .bottomTrailing)
         }
-        .edgesIgnoringSafeArea(.top)
+        .ignoresSafeArea(edges: .top)
     }
 }
 

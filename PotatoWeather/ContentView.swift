@@ -14,7 +14,7 @@ struct ContentView: View {
     
     var body: some View {
         
-        if let location = manager.location {
+        if manager.location != nil {
             // Creates the navbar at the bottom of the screen and
             // displays each view based on the tab you're in.
             TabView {
