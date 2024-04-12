@@ -13,6 +13,7 @@ struct LocalWeatherView: View {
     @StateObject var manager = LocationManagerModel()
     @StateObject var fetchWeather = FetchWeatherData()
     @StateObject var weatherSymbol = GetWeatherSymbol()
+    @StateObject var themeHandler = ThemeHandler()
     
     @State var weather: WeatherData?
     @State var forecast: ForecastData?
@@ -30,7 +31,8 @@ struct LocalWeatherView: View {
                                     .fontWeight(.heavy)
                                     .font(.system(size: 40))
                                     .fontDesign(.rounded)
-                                    .foregroundStyle(Color.white)
+                                    .foregroundStyle(themeHandler.currentTheme.Text)
+                                    .padding(.top, 30)
                                 
                                 
                                 weatherSymbol.weatherSymbols[Int(weather.timeSeries[0].parameters[weatherSymbolIndex!].values[0]) - 1]
@@ -42,9 +44,12 @@ struct LocalWeatherView: View {
                                 .font(.system(size: 20))
                                 .fontWeight(.bold)
                                 .fontDesign(.rounded)
-                                .foregroundStyle(.white)
+                                .foregroundStyle(themeHandler.currentTheme.Text)
                         }
-                        
+                        .padding(20)
+                        .background(themeHandler.currentTheme.Accent)
+                        .clipShape(RoundedRectangle(cornerRadius: 20, style: .continuous))
+                        .padding(.top, 125)
                         
                     } else {
                         ProgressView()
@@ -61,47 +66,58 @@ struct LocalWeatherView: View {
                     }
                     
                     if let forecast = forecast {
-                        VStack(alignment: .leading) {
-                            Text("Forecast")
-                                .fontWeight(.heavy)
-                                .font(.system(size: 30))
-                                .fontDesign(.rounded)
-                                .foregroundStyle(Color.white)
-                            ScrollView(.vertical, showsIndicators: false) {
-                                ForEach(0..<24) { day in
-                                    HStack(spacing: 100) {
-                                        let temperatureIndex = forecast.timeSeries[day].parameters.firstIndex(where: { $0.name == "t" })
-                                        
-                                        let timeIndex1 = forecast.timeSeries[0].validTime.index(
-                                            forecast.timeSeries[0].validTime.startIndex,
-                                            offsetBy: 11
-                                        )
-                                        let timeIndex2 = forecast.timeSeries[0].validTime.index(
-                                            forecast.timeSeries[0].validTime.startIndex,
-                                            offsetBy: 13
-                                        )
-                                        
-                                        let time = timeIndex1..<timeIndex2
-                                        
-                                        Text(String(describing: forecast.timeSeries[day].validTime[time]))
-                                            .font(.system(size: 25))
-                                            .fontDesign(.rounded)
-                                            .foregroundStyle(Color.white)
-                                        
-                                        Text("\(String(describing: forecast.timeSeries[day].parameters[temperatureIndex!].values[0])) °C")
-                                            .font(.system(size: 25))
-                                            .fontDesign(.rounded)
-                                            .foregroundStyle(Color.white)
-                                        
-                                        weatherSymbol.weatherSymbols[Int(forecast.timeSeries[day].parameters[18].values[0]) - 1]
-                                            .font(.system(size: 25))
-                                            .symbolRenderingMode(.multicolor)
+                        VStack {
+                            VStack(alignment: .leading) {
+                                Text("Forecast")
+                                    .fontWeight(.heavy)
+                                    .font(.system(size: 30))
+                                    .fontDesign(.rounded)
+                                    .foregroundStyle(themeHandler.currentTheme.Text)
+                                ScrollView(.vertical, showsIndicators: false) {
+                                    ForEach(0..<24) { day in
+                                        HStack(spacing: 75) {
+                                            let temperatureIndex = forecast.timeSeries[day].parameters.firstIndex(where: { $0.name == "t" })
+                                            
+                                            let timeIndex1 = forecast.timeSeries[0].validTime.index(
+                                                forecast.timeSeries[0].validTime.startIndex,
+                                                offsetBy: 11
+                                            )
+                                            let timeIndex2 = forecast.timeSeries[0].validTime.index(
+                                                forecast.timeSeries[0].validTime.startIndex,
+                                                offsetBy: 13
+                                            )
+                                            
+                                            let time = timeIndex1..<timeIndex2
+                                            
+                                            Text(String(describing: forecast.timeSeries[day].validTime[time]))
+                                                .font(.system(size: 25))
+                                                .fontDesign(.rounded)
+                                                .foregroundStyle(themeHandler.currentTheme.Text)
+                                                .fontDesign(.rounded)
+                                                .fixedSize(horizontal: true, vertical: false)
+                                            
+                                            Text("\(String(describing: forecast.timeSeries[day].parameters[temperatureIndex!].values[0])) °C")
+                                                .font(.system(size: 25))
+                                                .fontDesign(.rounded)
+                                                .foregroundStyle(themeHandler.currentTheme.Text)
+                                                .fontDesign(.rounded)
+                                                .fixedSize(horizontal: true, vertical: false)
+                                            
+                                            weatherSymbol.weatherSymbols[Int(forecast.timeSeries[day].parameters[18].values[0]) - 1]
+                                                .font(.system(size: 25))
+                                                .symbolRenderingMode(.multicolor)
+                                        }
                                     }
                                 }
+                                .frame(height: 330)
+                                
                             }
-                            .frame(height: 345)
-                            
                         }
+                        .padding(.horizontal, 67)
+                        .padding(.top, 40)
+                        .padding(.bottom, 100)
+                        .background(themeHandler.currentTheme.Accent)
+                        .clipShape(RoundedRectangle(cornerRadius: 50, style: .continuous))
                         
                     } else {
                         ProgressView()
@@ -121,9 +137,8 @@ struct LocalWeatherView: View {
             }
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .background {
-            LinearGradient(colors: [Color.black, Color.blue], startPoint: .top, endPoint: .bottomTrailing)
-        }
+        .background(themeHandler.currentTheme.Background)
+//            LinearGradient(colors: [Color.black, Color.blue], startPoint: .top, endPoint: .bottomTrailing)
         .ignoresSafeArea(edges: .top)
     }
 }

@@ -14,6 +14,7 @@ struct ForecastView: View {
     @StateObject var fetchWeather = FetchWeatherData()
     @StateObject var weatherSymbol = GetWeatherSymbol()
     @StateObject var getFormattedForecast = ForecastFormatter()
+    @StateObject var themeHandler = ThemeHandler()
     
     @State var weather: WeatherData?
     @State var forecast: ForecastData?
@@ -24,7 +25,7 @@ struct ForecastView: View {
             Text("10-day Forecast")
                 .font(.system(size: 40))
                 .fontWeight(.bold)
-                .foregroundStyle(Color.white)
+                .foregroundStyle(themeHandler.currentTheme.Text)
                 .fontDesign(.rounded)
             
             if let location = manager.location {
@@ -35,34 +36,65 @@ struct ForecastView: View {
                                 if let forecastInfoData = getFormattedForecast.forecastInfoData {
                                     if let forecastTimeData = getFormattedForecast.forecastTimeData {
                                         ForEach(0..<10) { day in
-                                            Text(forecastInfoData[day].key)
-                                                .font(.system(size: 20))
-                                                .fontWeight(.bold)
-                                                .foregroundStyle(Color.white)
-                                                .fontDesign(.rounded)
-                                            
                                             VStack {
-                                                ForEach(0..<forecastInfoData[day].value.count, id: \.self) { i in
-                                                    HStack(spacing: 50) {
-                                                        Text(forecastTimeData[day].value[i].validTime)
-                                                            .font(.system(size: 15))
-                                                            .fontWeight(.bold)
-                                                            .foregroundStyle(Color.white)
-                                                            .fontDesign(.rounded)
-                                                        
-                                                        Text("\(String(describing: forecastInfoData[day].value[i].info.temp)) °C")
-                                                            .font(.system(size: 15))
-                                                            .fontWeight(.bold)
-                                                            .foregroundStyle(Color.white)
-                                                            .fontDesign(.rounded)
-                                                        
-                                                        weatherSymbol.weatherSymbols[Int(forecastInfoData[day].value[i].info.wsymb) - 1]
-                                                            .font(.system(size: 25))
-                                                            .symbolRenderingMode(.multicolor)
+                                                VStack {
+                                                    Text(forecastInfoData[day].key)
+                                                        .font(.system(size: 30))
+                                                        .fontWeight(.bold)
+                                                        .foregroundStyle(themeHandler.currentTheme.Text)
+                                                        .fontDesign(.rounded)
+                                                        .padding(.bottom, 5)
+                                                        .underline()
+                                                    
+                                                    ForEach(0..<forecastInfoData[day].value.count, id: \.self) { i in
+                                                        VStack(alignment: .center) {
+                                                            HStack(spacing: 70) {
+                                                                Rectangle().overlay(
+                                                                    Text(forecastTimeData[day].value[i].validTime)
+                                                                        .font(.system(size: 25))
+                                                                        .fontWeight(.bold)
+                                                                        .foregroundStyle(themeHandler.currentTheme.Text)
+                                                                        .fontDesign(.rounded)
+                                                                        .fixedSize(horizontal: true, vertical: false)
+                                                                        .monospacedDigit()
+                                                                )
+                                                                
+                                                                Rectangle().overlay(
+                                                                    Text("\(String(describing: forecastInfoData[day].value[i].info.temp)) °C")
+                                                                        .font(.system(size: 25))
+                                                                        .fontWeight(.bold)
+                                                                        .foregroundStyle(themeHandler.currentTheme.Text)
+                                                                        .fontDesign(.rounded)
+                                                                        .fixedSize(horizontal: true, vertical: false)
+                                                                )
+                                                                
+                                                                Rectangle().overlay(
+                                                                    weatherSymbol.weatherSymbols[Int(forecastInfoData[day].value[i].info.wsymb) - 1]
+                                                                        .font(.system(size: 35))
+                                                                        .symbolRenderingMode(.multicolor)
+                                                                        .frame(maxWidth: .infinity)
+                                                                )
+                                                                
+                                                            }
+                                                            .frame(
+                                                                minWidth: 0,
+                                                                maxWidth: .infinity,
+                                                                minHeight: 35,
+                                                                maxHeight: .infinity
+                                                            )
+                                                            .foregroundStyle(Color.clear)
+                                                        }
                                                     }
                                                 }
+                                                .padding(20)
+                                                .background(themeHandler.currentTheme.Accent)
+                                                .clipShape(RoundedRectangle(cornerRadius: 20, style: .continuous))
+                                                .clipped()
+                                                .shadow(radius: 5)
                                             }
-                                            .padding(.bottom, 50)
+                                            .padding(.top, 10)
+                                            .padding(.bottom, 20)
+                                            .padding(.horizontal, 40)
                                         }
                                         
                                     } else {
@@ -81,7 +113,7 @@ struct ForecastView: View {
                                 }
                             }
                         }
-                        .frame(height: 600)
+                        .frame(height: 700)
                         
                     } else {
                         ProgressView()
@@ -112,10 +144,10 @@ struct ForecastView: View {
                 }
             }
         }
+        .padding(.top, 100)
         .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .background {
-            LinearGradient(colors: [Color.black, Color.blue], startPoint: .top, endPoint: .bottomTrailing)
-        }
+        .background(themeHandler.currentTheme.Background)
+//            LinearGradient(colors: [Color.black, Color.blue], startPoint: .top, endPoint: .bottomTrailing)
         .ignoresSafeArea(edges: .top)
     }
 }

@@ -11,6 +11,7 @@ struct ContentView: View {
     
     @StateObject var manager = LocationManagerModel()
     @StateObject var weather = FetchWeatherData()
+    @StateObject var themeHandler = ThemeHandler()
     
     var body: some View {
         
@@ -39,9 +40,19 @@ struct ContentView: View {
                         Text("Settings")
                     }
             }
-            .background {
-                Color.white
-            }
+            .onAppear {
+                let appearance = UITabBarAppearance()
+                appearance.configureWithOpaqueBackground()
+                appearance.backgroundColor = themeHandler.currentTheme.TabBar
+                appearance.stackedLayoutAppearance.normal.iconColor = themeHandler.currentTheme.UnselectedIcon
+                appearance.stackedLayoutAppearance.normal.titleTextAttributes = [NSAttributedString.Key.foregroundColor: themeHandler.currentTheme.UnselectedIcon]
+                        
+                appearance.stackedLayoutAppearance.selected.iconColor = themeHandler.currentTheme.SelectedIcon
+                appearance.stackedLayoutAppearance.selected.titleTextAttributes = [NSAttributedString.Key.foregroundColor: themeHandler.currentTheme.SelectedIcon]
+                        
+                UITabBar.appearance().standardAppearance = appearance
+                UITabBar.appearance().scrollEdgeAppearance = appearance
+                }
         } else {
             if manager.isLoading {
                 ProgressView()

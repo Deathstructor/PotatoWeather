@@ -9,7 +9,24 @@ import SwiftUI
 
 struct SettingsView: View {
     var body: some View {
-        Text("Settings placeholder")
+        VStack(alignment: .leading) {
+            NavigationStack {
+                Text("Settings")
+                    .fontWeight(.heavy)
+                    .font(.system(size: 50))
+                    .fontDesign(.rounded)
+                    .padding(.top, 30)
+                
+                List {
+                    NavigationLink("Themes") {
+                        ThemesView().navigationTitle("Themes")
+                    }
+                    Button("Use Farenheit") {
+                        
+                    }
+                }
+            }
+        }
     }
 }
 
