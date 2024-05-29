@@ -15,10 +15,11 @@
 		F436F5AA2B2C782E00CDB4BA /* PotatoWeatherTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F436F5A92B2C782E00CDB4BA /* PotatoWeatherTests.swift */; };
 		F436F5B42B2C782E00CDB4BA /* PotatoWeatherUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F436F5B32B2C782E00CDB4BA /* PotatoWeatherUITests.swift */; };
 		F436F5B62B2C782E00CDB4BA /* PotatoWeatherUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F436F5B52B2C782E00CDB4BA /* PotatoWeatherUITestsLaunchTests.swift */; };
+		F4871BE72C073220002CC834 /* TemperatureBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4871BE62C073220002CC834 /* TemperatureBarView.swift */; };
+		F4871BE92C0736D7002CC834 /* TemperatureBarsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4871BE82C0736D7002CC834 /* TemperatureBarsView.swift */; };
 		F4B9AC6A2B5367060033C83A /* LocalWeatherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B9AC692B5367060033C83A /* LocalWeatherView.swift */; };
 		F4B9AC6C2B5369720033C83A /* ForecastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B9AC6B2B5369720033C83A /* ForecastView.swift */; };
 		F4B9AC6E2B551E8F0033C83A /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B9AC6D2B551E8F0033C83A /* SettingsView.swift */; };
-		F4B9AC702B5A6B780033C83A /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B9AC6F2B5A6B780033C83A /* SearchView.swift */; };
 		F4B9AC722B5A8D330033C83A /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B9AC712B5A8D330033C83A /* LocationManager.swift */; };
 		F4B9AC762B6CF05A0033C83A /* FetchWeatherData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B9AC752B6CF05A0033C83A /* FetchWeatherData.swift */; };
 		F4C1CE782B751925009033BF /* GetWeatherSymbol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C1CE772B751925009033BF /* GetWeatherSymbol.swift */; };
@@ -55,10 +56,11 @@
 		F436F5AF2B2C782E00CDB4BA /* PotatoWeatherUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PotatoWeatherUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F436F5B32B2C782E00CDB4BA /* PotatoWeatherUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PotatoWeatherUITests.swift; sourceTree = "<group>"; };
 		F436F5B52B2C782E00CDB4BA /* PotatoWeatherUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PotatoWeatherUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		F4871BE62C073220002CC834 /* TemperatureBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemperatureBarView.swift; sourceTree = "<group>"; };
+		F4871BE82C0736D7002CC834 /* TemperatureBarsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemperatureBarsView.swift; sourceTree = "<group>"; };
 		F4B9AC692B5367060033C83A /* LocalWeatherView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalWeatherView.swift; sourceTree = "<group>"; };
 		F4B9AC6B2B5369720033C83A /* ForecastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastView.swift; sourceTree = "<group>"; };
 		F4B9AC6D2B551E8F0033C83A /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
-		F4B9AC6F2B5A6B780033C83A /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 		F4B9AC712B5A8D330033C83A /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		F4B9AC752B6CF05A0033C83A /* FetchWeatherData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchWeatherData.swift; sourceTree = "<group>"; };
 		F4C1CE772B751925009033BF /* GetWeatherSymbol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetWeatherSymbol.swift; sourceTree = "<group>"; };
@@ -159,8 +161,9 @@
 				F4B9AC692B5367060033C83A /* LocalWeatherView.swift */,
 				F4B9AC6B2B5369720033C83A /* ForecastView.swift */,
 				F4B9AC6D2B551E8F0033C83A /* SettingsView.swift */,
-				F4B9AC6F2B5A6B780033C83A /* SearchView.swift */,
 				F4DB24BB2B91543100A4EA09 /* ThemesView.swift */,
+				F4871BE62C073220002CC834 /* TemperatureBarView.swift */,
+				F4871BE82C0736D7002CC834 /* TemperatureBarsView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -302,8 +305,9 @@
 				F436F5992B2C782C00CDB4BA /* PotatoWeatherApp.swift in Sources */,
 				F41D3A4F2B84DB9A00DCBE0D /* ForecastFormatter.swift in Sources */,
 				F4DB24BC2B91543100A4EA09 /* ThemesView.swift in Sources */,
+				F4871BE92C0736D7002CC834 /* TemperatureBarsView.swift in Sources */,
 				F4B9AC722B5A8D330033C83A /* LocationManager.swift in Sources */,
-				F4B9AC702B5A6B780033C83A /* SearchView.swift in Sources */,
+				F4871BE72C073220002CC834 /* TemperatureBarView.swift in Sources */,
 				F4B9AC6E2B551E8F0033C83A /* SettingsView.swift in Sources */,
 				F4B9AC6A2B5367060033C83A /* LocalWeatherView.swift in Sources */,
 				F4C1CE782B751925009033BF /* GetWeatherSymbol.swift in Sources */,

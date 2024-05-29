@@ -1,5 +1,5 @@
 //
-//  DateDecoder.swift
+//  ForecastFormatter.swift
 //  PotatoWeather
 //
 //  Created by Paul Chastain on 2024-02-20.
@@ -11,8 +11,13 @@ import CoreLocation
 
 class ForecastFormatter: ObservableObject {
     
+    @StateObject var weatherSymbol = GetWeatherSymbol()
+    
     @Published var forecastInfoData: [Dictionary<String, [ForecastDates]>.Element]?
     @Published var forecastTimeData: [Dictionary<String, [ForecastTime]>.Element]?
+    @Published var tempMin: [Double]?
+    @Published var tempMax: [Double]?
+    @Published var mostFrequentWsymb: [Int]?
     
     var hasLoaded: Bool = false
     
@@ -70,7 +75,39 @@ class ForecastFormatter: ObservableObject {
             
             forecastInfoData = sortedGroupedInfo
             forecastTimeData = sortedGroupedTimes
-           
+            
+            
+            var allTempsMin: [Double] = []
+            var allTempsMax: [Double] = []
+            var mostFrequentWeather: [Int] = []
+            
+            let days = 0..<10
+            for day in days {
+                var allTemps: [Double] = []
+                var allWeathers: [Int] = []
+                
+                let temperatures = 0..<forecastInfoData![day].value.count
+                for i in temperatures {
+                    allTemps.append(Double(forecastInfoData![day].value[i].info.temp))
+                    allWeathers.append(Int(forecastInfoData![day].value[i].info.wsymb))
+                }
+                
+                allTempsMin.append(allTemps.min()!)
+                allTempsMax.append(allTemps.max()!)
+                
+                var counts = [Int: Int]()
+                
+                allWeathers.forEach { counts[$0] = (counts[$0] ?? 0) + 1}
+                
+                if let (_, value) = counts.max(by: { $0.1 < $1.1 }) {
+                    mostFrequentWeather.append(value)
+                }
+            }
+            
+            tempMin = allTempsMin
+            tempMax = allTempsMax
+            mostFrequentWsymb = mostFrequentWeather
+            
             hasLoaded = true
         }
     }

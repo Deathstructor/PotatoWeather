@@ -19,101 +19,148 @@ struct ForecastView: View {
     @State var weather: WeatherData?
     @State var forecast: ForecastData?
     
+    func getWeekday(day: String) -> String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd"
+        guard let formatDay = formatter.date(from: day) else { return "no date" }
+        let index = Calendar.current.component(.weekday, from: formatDay)
+        return Calendar.current.shortWeekdaySymbols[index - 1]
+    }
+    
+    func getTemperatureData() -> [TemperatureData] {
+        var allTemperatureData: [TemperatureData] = []
+        
+        let days = 0..<10;
+        for day in days {
+            allTemperatureData.append(TemperatureData(
+                minTemp: getFormattedForecast.tempMin![day],
+                maxTemp: getFormattedForecast.tempMax![day])
+            )
+        }
+        
+        return allTemperatureData
+    }
+    
     var body: some View {
         VStack(alignment: .center) {
-            
-            Text("10-day Forecast")
-                .font(.system(size: 40))
-                .fontWeight(.bold)
-                .foregroundStyle(themeHandler.currentTheme.Text)
-                .fontDesign(.rounded)
-            
             if let location = manager.location {
                 if let weather = weather {
                     if let forecast = forecast {
                         ScrollView(.vertical, showsIndicators: false) {
-                            VStack(spacing: 10) {
-                                if let forecastInfoData = getFormattedForecast.forecastInfoData {
-                                    if let forecastTimeData = getFormattedForecast.forecastTimeData {
-                                        ForEach(0..<10) { day in
-                                            VStack {
-                                                VStack {
-                                                    Text(forecastInfoData[day].key)
-                                                        .font(.system(size: 30))
+                            if let forecastInfoData = getFormattedForecast.forecastInfoData {
+                                ForEach(0..<10) { day in
+                                    HStack {
+                                        if day == 0 {
+                                            Rectangle().overlay(
+                                                HStack {
+                                                    Text("Now")
+                                                        .font(.system(size: 25))
                                                         .fontWeight(.bold)
                                                         .foregroundStyle(themeHandler.currentTheme.Text)
                                                         .fontDesign(.rounded)
                                                         .padding(.bottom, 5)
-                                                        .underline()
-                                                    
-                                                    ForEach(0..<forecastInfoData[day].value.count, id: \.self) { i in
-                                                        VStack(alignment: .center) {
-                                                            HStack(spacing: 70) {
-                                                                Rectangle().overlay(
-                                                                    Text(forecastTimeData[day].value[i].validTime)
-                                                                        .font(.system(size: 25))
-                                                                        .fontWeight(.bold)
-                                                                        .foregroundStyle(themeHandler.currentTheme.Text)
-                                                                        .fontDesign(.rounded)
-                                                                        .fixedSize(horizontal: true, vertical: false)
-                                                                        .monospacedDigit()
-                                                                )
-                                                                
-                                                                Rectangle().overlay(
-                                                                    Text("\(String(describing: forecastInfoData[day].value[i].info.temp)) °C")
-                                                                        .font(.system(size: 25))
-                                                                        .fontWeight(.bold)
-                                                                        .foregroundStyle(themeHandler.currentTheme.Text)
-                                                                        .fontDesign(.rounded)
-                                                                        .fixedSize(horizontal: true, vertical: false)
-                                                                )
-                                                                
-                                                                Rectangle().overlay(
-                                                                    weatherSymbol.weatherSymbols[Int(forecastInfoData[day].value[i].info.wsymb) - 1]
-                                                                        .font(.system(size: 35))
-                                                                        .symbolRenderingMode(.multicolor)
-                                                                        .frame(maxWidth: .infinity)
-                                                                )
-                                                                
-                                                            }
-                                                            .frame(
-                                                                minWidth: 0,
-                                                                maxWidth: .infinity,
-                                                                minHeight: 35,
-                                                                maxHeight: .infinity
-                                                            )
-                                                            .foregroundStyle(Color.clear)
-                                                        }
-                                                    }
+                                                        .monospaced()
+                                                        .fixedSize(horizontal: true, vertical: false)
+                                                    Spacer()
                                                 }
-                                                .padding(20)
-                                                .background(themeHandler.currentTheme.Accent)
-                                                .clipShape(RoundedRectangle(cornerRadius: 20, style: .continuous))
-                                                .clipped()
-                                                .shadow(radius: 5)
+                                            )
+                                            .frame(width: 50)
+                                            .scrollTransition(.animated.threshold(.visible(0.8))) { content, phase in
+                                                content
+                                                    .opacity(phase.isIdentity ? 1 : 0)
+                                                    .scaleEffect(phase.isIdentity ? 1 : 0.75)
+                                                    .blur(radius: phase.isIdentity ? 0 : 10)
                                             }
-                                            .padding(.top, 10)
-                                            .padding(.bottom, 20)
-                                            .padding(.horizontal, 40)
+                                        } else {
+                                            Rectangle().overlay(
+                                                HStack {
+                                                    Text(String(describing: getWeekday(day: forecastInfoData[day].key)))
+                                                        .font(.system(size: 25))
+                                                        .fontWeight(.bold)
+                                                        .foregroundStyle(themeHandler.currentTheme.Text)
+                                                        .fontDesign(.rounded)
+                                                        .padding(.bottom, 5)
+                                                        .monospaced()
+                                                        .fixedSize(horizontal: true, vertical: false)
+                                                    Spacer()
+                                                }
+                                            )
+                                            .frame(width: 50)
+                                            .scrollTransition(.animated.threshold(.visible(0.8))) { content, phase in
+                                                content
+                                                    .opacity(phase.isIdentity ? 1 : 0)
+                                                    .scaleEffect(phase.isIdentity ? 1 : 0.75)
+                                                    .blur(radius: phase.isIdentity ? 0 : 10)
+                                            }
                                         }
                                         
-                                    } else {
-                                        ProgressView()
-                                            .task {
-                                                getFormattedForecast.formatForecast(location: location, forecast: forecast, weather: weather)
-                                            }
-                                    }
-                                    
-                                } else {
-                                    ProgressView()
-                                        .task {
-                                            getFormattedForecast.formatForecast(location: location, forecast: forecast, weather: weather)
-                                            print(getFormattedForecast.forecastTimeData?[0].value[0].validTime ?? "no value")
+                                        Rectangle().overlay(
+                                            weatherSymbol.weatherSymbols[getFormattedForecast.mostFrequentWsymb![day] - 1]
+                                                .font(.system(size: 35))
+                                                .symbolRenderingMode(.multicolor)
+                                                .frame(maxWidth: .infinity)
+                                        )
+                                        .frame(width: 60)
+                                        .scrollTransition(.animated.threshold(.visible(0.8))) { content, phase in
+                                            content
+                                                .opacity(phase.isIdentity ? 1 : 0)
+                                                .scaleEffect(phase.isIdentity ? 1 : 0.75)
+                                                .blur(radius: phase.isIdentity ? 0 : 10)
                                         }
+                                        
+                                        VStack(spacing: 0) {
+                                            HStack {
+                                                Rectangle().overlay(
+                                                    Text("\(String(describing: getFormattedForecast.tempMin![day]))°")
+                                                        .font(.system(size: 25))
+                                                        .foregroundStyle(themeHandler.currentTheme.Text)
+                                                        .fontDesign(.rounded)
+                                                        .fixedSize(horizontal: true, vertical: false)
+                                                        .monospacedDigit()
+                                                )
+                                                .scrollTransition(.animated.threshold(.visible(0.8))) { content, phase in
+                                                    content
+                                                        .opacity(phase.isIdentity ? 1 : 0)
+                                                        .scaleEffect(phase.isIdentity ? 1 : 0.75)
+                                                        .blur(radius: phase.isIdentity ? 0 : 10)
+                                                }
+                                                
+                                                Rectangle().overlay(
+                                                    Text("\(String(describing: getFormattedForecast.tempMax![day]))°")
+                                                        .font(.system(size: 25))
+                                                        .foregroundStyle(themeHandler.currentTheme.Text)
+                                                        .fontDesign(.rounded)
+                                                        .fixedSize(horizontal: true, vertical: false)
+                                                        .monospacedDigit()
+                                                )
+                                                .scrollTransition(.animated.threshold(.visible(0.8))) { content, phase in
+                                                    content
+                                                        .opacity(phase.isIdentity ? 1 : 0)
+                                                        .scaleEffect(phase.isIdentity ? 1 : 0.75)
+                                                        .blur(radius: phase.isIdentity ? 0 : 10)
+                                                }
+                                                
+                                            }
+
+                                            TemperatureBarsView(data: getTemperatureData(), day: day)
+                                                .frame(height: 30)
+//                                                .background(Color.red)
+                                        }
+                                    }
+                                    .padding(5)
+                                    .foregroundStyle(Color.clear)
                                 }
+                                
+                            } else {
+                                ProgressView()
+                                    .task {
+                                        getFormattedForecast.formatForecast(location: location, forecast: forecast, weather: weather)
+                                        print(getFormattedForecast.forecastTimeData?[0].value[0].validTime ?? "no value")
+                                    }
                             }
                         }
-                        .frame(height: 700)
+                        .frame(maxHeight: 360)
+                        .padding(20)
                         
                     } else {
                         ProgressView()
@@ -144,11 +191,8 @@ struct ForecastView: View {
                 }
             }
         }
-        .padding(.top, 100)
-        .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .background(themeHandler.currentTheme.Background)
-//            LinearGradient(colors: [Color.black, Color.blue], startPoint: .top, endPoint: .bottomTrailing)
-        .ignoresSafeArea(edges: .top)
+        .background(themeHandler.currentTheme.Accent)
+        .clipShape(RoundedRectangle(cornerRadius: 45, style: .circular))
     }
 }
 

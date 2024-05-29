@@ -1,5 +1,5 @@
 //
-//  Themes.swift
+//  ThemesHandler.swift
 //  PotatoWeather
 //
 //  Created by Paul Chastain on 2024-04-08.
@@ -12,9 +12,9 @@ class ThemeHandler: ObservableObject {
     
     @Published var selectedTheme: Int = 0
     @Published var currentTheme: Themes = Themes(
-        Background: Color.custom(colorHex: "f6f6f6"),
-        Accent: Color.custom(colorHex: "08a0ff"),
-        Text: Color.custom(colorHex: "000000"),
+        Background: Color.custom(colorHex: "3b3f4b"),
+        Accent: Color.custom(colorHex: "459BED"),
+        Text: Color.custom(colorHex: "FFFFFF"),
         TabBar: UIColor.custom(colorHex: "08a0ff"),
         SelectedIcon: UIColor.custom(colorHex: "000000"),
         UnselectedIcon: UIColor.custom(colorHex: "444444")
@@ -33,8 +33,8 @@ class ThemeHandler: ObservableObject {
             )
         default:
             currentTheme = Themes(
-                Background: Color.custom(colorHex: "f6f6f6"),
-                Accent: Color.custom(colorHex: "08a0ff"),
+                Background: Color.custom(colorHex: "485A6E"),
+                Accent: Color.custom(colorHex: "2A5CB1"),
                 Text: Color.custom(colorHex: "000000"),
                 TabBar: UIColor.custom(colorHex: "08a0ff"),
                 SelectedIcon: UIColor.custom(colorHex: "000000"),
