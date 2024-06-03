@@ -12,7 +12,7 @@ struct ThemesView: View {
     @StateObject var themeHandler = ThemeHandler()
     
     var body: some View {
-        Text("egg")
+        Text("Placeholder")
             .onAppear {
                 themeHandler.setCurrentTheme()
             }

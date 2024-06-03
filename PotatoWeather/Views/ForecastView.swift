@@ -144,7 +144,6 @@ struct ForecastView: View {
 
                                             TemperatureBarsView(data: getTemperatureData(), day: day)
                                                 .frame(height: 30)
-//                                                .background(Color.red)
                                         }
                                     }
                                     .padding(5)

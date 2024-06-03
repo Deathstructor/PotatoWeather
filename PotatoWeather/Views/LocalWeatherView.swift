@@ -18,6 +18,8 @@ struct LocalWeatherView: View {
     @State var weather: WeatherData?
     @State var forecast: ForecastData?
     
+    @State private var showSettings: Bool = false
+    
     var body: some View {
         GeometryReader { geometry in
             ZStack {
@@ -34,15 +36,18 @@ struct LocalWeatherView: View {
                                     .tint(themeHandler.currentTheme.Text)
                             }
                             
-                            Button {
-                                
-                            } label: {
+                            Button(action: {
+                                showSettings = true
+                            }) {
                                 Image("SettingsIcon")
                                     .renderingMode(.template)
                                     .resizable()
                                     .frame(maxWidth: 40, maxHeight: 40)
                                     .rotationEffect(.degrees(90))
-                                    .tint(themeHandler.currentTheme.Text)
+                                    .foregroundStyle(Color.white)
+                            }
+                            .sheet(isPresented: $showSettings) {
+                                SettingsView()
                             }
                         }
                         .padding(.bottom, 10)
